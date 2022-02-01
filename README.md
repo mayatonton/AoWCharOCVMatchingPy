@@ -1,2 +1,1 @@
-# AoWCharOCVMatchingPy-
-for PMG tools
+# AoWCharOCVMatchingPy
