@@ -18,7 +18,8 @@
 
 以下の例の画像は、「巨大岩」と「見習い魔法使い」の検出結果を矩形で表現したもの
 
-左側の画像の抽出結果は正しいが、右側は「見習い魔法使い」の検出に誤りがあり
-「アサシン」や「ゾンビ兵」が誤って「見習い魔法使い」として検出されている
+~~左側の画像の抽出結果は正しいが、右側は「見習い魔法使い」の検出に誤りがあり~~
+~~「アサシン」や「ゾンビ兵」が誤って「見習い魔法使い」として検出されている~~
+(対応済み 2022.02.02)
 
 <img src="https://raw.githubusercontent.com/mayatonton/AoWCharOCVMatchingPy/main/out_a.jpg" width=30% height=30% /><img src="https://raw.githubusercontent.com/mayatonton/AoWCharOCVMatchingPy/main/out_b.jpg" width=30% height=30% />
