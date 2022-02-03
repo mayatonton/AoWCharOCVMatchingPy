@@ -1,4 +1,7 @@
 # AoWCharOCVMatchingPy
+iPhoneSE のみ対応、陣形画像の結合には Tailor を利用（https://apps.apple.com/jp/app/tailor-screenshot-stitching/id926653095）
+
+
 陣形画像から兵士を画像検索する
 
 目的のアウトプット
