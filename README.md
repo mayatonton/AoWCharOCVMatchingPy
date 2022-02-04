@@ -1,4 +1,11 @@
 # AoWCharOCVMatchingPy
+2022.02.05
+こぶさんにもらったファイルを追加 [1080x2340]
+
+<img src="https://raw.githubusercontent.com/mayatonton/AoWFomationJPG2Text/main/source_img/C.jpg" width=30% height=30% />
+
+
+
 iPhoneSE のみ対応、陣形画像の結合には Tailor を利用（https://apps.apple.com/jp/app/tailor-screenshot-stitching/id926653095）
 
 
