@@ -46,3 +46,12 @@ def print_formation():
         for x in range(0,7):
             line_char += (formation_array[x][y] + " ")
         print(line_char)
+
+def output_formation():
+    f = open("out.txt", "w", encoding='UTF-8')
+    for y in range(0,7):
+        line_char = ""
+        for x in range(0,7):
+            line_char += (formation_array[x][y] + " ")
+        f.write(line_char+"\n")
+    f.close()
