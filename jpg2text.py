@@ -10,53 +10,6 @@ TEMP_IMG_DIR = "temp_img_huaweiP30Pro"
 
 source_img_path = ""
 
-# temp_assassin_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "ASSASSIN.jpg")
-# temp_bakudan_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "BAKUDAN.jpg")
-# temp_bear_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "BEAR.jpg")
-# temp_capapult_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "CATAPULT.jpg")
-# temp_daemon_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "DAEMON.jpg")
-# temp_defender_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "DEFENDER.jpg")
-# temp_fmeiji_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "FMEIJI.jpg")
-# temp_fune_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "FUNE.jpg")
-# temp_gakusha_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "GAKUSHA.jpg")
-# temp_goburin_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "GOBURIN.jpg")
-# temp_gorem_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "GOREM.jpg")
-# temp_hohe_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "HOHE.jpg")
-# temp_hone_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "HONE.jpg")
-# temp_hyoketu_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "HYOKETU.jpg")
-# temp_icemeiji_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "ICEMEIJI.jpg")
-# temp_iwa_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "IWA.jpg")
-# temp_jigoku_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "JIGOKU.jpg")
-# temp_junrei_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "JUNREI.jpg")
-# temp_kamikaze_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "KAMIKAZE.jpg")
-# temp_kemono_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "KEMONO.jpg")
-# temp_kenshi_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "KENSHI.jpg")
-# temp_majo_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "MAJO.jpg")
-# temp_minarai_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "MINARAI.jpg")
-# temp_necro_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "NECRO.jpg")
-# temp_ogre_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "OGRE.jpg")
-# temp_paladin_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "PALADIN.jpg")
-# temp_pharaoh_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "PHARAOH.jpg")
-# temp_pmeiji_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "PMEIJI.jpg")
-# temp_pumpkin_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "PUMPKIN.jpg")
-# temp_sabo_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "SABO.jpg")
-# temp_sai_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "SAI.jpg")
-# temp_senkusha_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "SENKUSHA.jpg")
-# temp_soko_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "SOKO.jpg")
-# temp_soul_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "SOUL.jpg")
-# temp_syudo_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "SYUDO.jpg")
-# temp_temple_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "TEMPLE.jpg")
-# temp_toteki_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "TOTEKI.jpg")
-# temp_totem_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "TOTEM.jpg")
-# temp_tozoku_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "TOZOKU.jpg")
-# temp_varistor_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "VARISTOR.jpg")
-# temp_viking_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "VIKING.jpg")
-# temp_voodoo_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "VOODOO.jpg")
-# temp_yari_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "YARI.jpg")
-# temp_yasha_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "YASHA.jpg")
-# temp_yumi_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "YUMI.jpg")
-# temp_zombie_path = os.path.join(ROOT_PATH, TEMP_IMG_DIR, "ZOMBIE.jpg")
-
 temp_assassin_path = "./" + TEMP_IMG_DIR + "/" + "ASSASSIN.jpg"
 temp_bakudan_path = "./" + TEMP_IMG_DIR + "/" +  "BAKUDAN.jpg"
 temp_bear_path = "./" + TEMP_IMG_DIR + "/" +  "BEAR.jpg"
@@ -114,10 +67,13 @@ def matching(src_img, temp_img, out_img, color, char_name):
         # pt[0], pt[1] がそれぞれ検出された画像の左上のx,y座標となるので
         # テンプレートを一致させた分の幅・高さを足して、1pixelの赤線で矩形を書く
         cv2.rectangle(out_img, pt, (pt[0] + width, pt[1] + height), color, 2)
-        x,y = formation_7x7.calc_disploc2charloc(int(pt[0]), int(pt[1]))
-        formation_7x7.set_char(x,y,char_name)
+        x,y = formation.calc_disploc2charloc(int(pt[0]), int(pt[1]))
+        formation.set_char(x,y,char_name)
 
 def main():
+    global formation
+    formation = formation_7x7.Formation_7x7()
+    
     # 検索先読み込み
     img = cv2.imread(source_img_path) 
     img_gray = cv2.imread(source_img_path,0)
@@ -228,17 +184,16 @@ def main():
 
     fname = os.path.basename(source_img_path)
     print(f"----[{fname}]------------")
-    formation_7x7.print_formation()
+    formation.print_formation()
     print("------------------------")
 
     # 画像保存
     cv2.imwrite('./out_b.jpg', img)
 
-    formation_7x7.output_formation()
+    formation.output_formation()
 
 
 if __name__ == "__main__":
-
     source_img_path = sys.argv[1]
     main()
     #print(cv2.__file__)
