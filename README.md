@@ -1,4 +1,7 @@
 # AoWCharOCVMatchingPy
+### ビルド手順
+・そのうち書く
+
 ### インストール手順
 ・python のインストール（パスも追加すること）
 https://www.python.org/downloads/
